@@ -1,0 +1,26 @@
+var MongoClient = require('mongodb').MongoClient,
+    assert = require('assert');
+var url = "mongodb://localhost:27017/";
+module.exports = {
+    find: function (table, qry, callback /* this is how you get the result */ ) {
+        MongoClient.connect(url, function (err, db) {
+            if (err) throw err;
+            var dbo = db.db("invDB");
+            dbo.collection(table).find(qry).toArray(function (err, result) {
+                if (err) {
+                    return callback(err);
+                }
+                callback(null, result[0]); // here we call the callback
+                db.close();
+            });
+        });
+    },
+    writeOne: function (table, params) {
+        MongoClient.connect(url, function (err, db) {
+            if (err) throw err;
+            var dbo = db.db("invDB");
+            dbo.collection(table).insertOne(params);
+            db.close();
+        });
+    }
+};

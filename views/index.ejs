@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <% include partials/head %>
+    
+<script>
+    // $.ajax({
+    //   url: "/getProduct",
+    //   type: 'GET',
+    //   success: function (res) {
+    //     console.log(res);
+    //   }
+    // });
+  
+    $(document).ready(function(){
+      $('#register-link').click(function(){
+      $('.login').slideUp();
+      $('.register').slideDown();
+      $('#login-link').removeClass('active');
+      $('#register-link').addClass('active');
+    });
+    $('#login-link').click(function(){
+      $('.login').slideDown(); 
+      $('.register').slideUp();
+      $('#login-link').addClass('active');
+      $('#register-link').removeClass('active');
+    });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6 offset-md-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">
+                <ul class="nav nav-tabs">
+                  <li class="nav-item">
+                    <h3>
+                      <a id="login-link" class="nav-link active">
+                        Log In
+                      </a>
+                    </h3>
+                  </li>
+                  <li class="nav-item">
+                    <h3>
+                      <a id="register-link" class="nav-link">
+                        Register
+                      </a>
+                    </h3>
+                  </li>
+                </ul>
+              </div>
+              <div class="login">
+                <% include partials/log-in %>
+              </div>
+              <div class="register">
+                <% include partials/register %>
+              </div>
+            </div>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

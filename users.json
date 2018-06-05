@@ -1,0 +1,20 @@
+[
+    {
+        "uid": "test",
+        "pwd": "test",
+        "fname": "tester",
+        "lname": "mctest"
+    },
+    {
+        "uid": "root",
+        "pwd": "toor",
+        "fname": "sudo",
+        "lname": "super user"
+    },
+    {
+        "uid": "dan",
+        "pwd": "1234",
+        "fname": "dan",
+        "lname": "bali"
+    }
+]

@@ -1,0 +1,18 @@
+[
+    {
+        "pid": "0001",
+        "uid":"dan",
+        "pname":"pc",
+        "desc":"This is a super fast computer",
+        "qty": 40,
+        "price": 800
+    },
+    {
+        "pid": "0002",
+        "uid":"test",
+        "pname":"laptop",
+        "desc":"This is a super fast portable computer",
+        "qty": 10,
+        "price": 1200
+    }
+]

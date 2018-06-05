@@ -1,0 +1,24 @@
+{
+  "name": "invmnger",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "mongodb": "^3.1.0-beta4",
+    "morgan": "~1.9.0",
+    "nodemon": "^1.17.5"
+  },
+  "description": "This is just a test project for inventory management in node.js, that will connect to mongodb. I'm doing this to expand my knowledge of backend web development.",
+  "main": "app.js",
+  "devDependencies": {},
+  "author": "Daniel Baliczek",
+  "license": "ISC"
+}
