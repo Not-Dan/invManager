@@ -5,7 +5,7 @@ $(document).ready(function () {
 
 //change password
 function changePass() {
-    $(".manager > .row").slideUp(1000, function () {
+    $(".manager").slideUp(1000, function () {
         $(".manager").html(`
         <div class="row">
         <div class="col-xs-12 col-sm-12 offset-md-3 col-md-6">
@@ -18,7 +18,7 @@ function changePass() {
       </form>
       </div></div>
         `);
-        $(".manager > .row").slideDown();
+        $(".manager").slideDown();
     });
     $(".btn-group-vertical > button").removeClass("active");
     $("#Change-Password").addClass('active');
@@ -26,14 +26,18 @@ function changePass() {
 
 //get all users
 function getUsers() {
-    $.ajax({
-        url: "dashboard/getUsers",
-        type: 'GET',
-        timeout: 3000
-    }).done(
-        function (res) {
-            $.each(res, function (collection, user) {
-                $(".manager > .row").append(`
+    $(".manager").slideUp(1000, function () {
+        $(".btn-group-vertical > button").removeClass("active");
+        $("#Show-Users").addClass('active');
+        $(".manager").html("<div class='row'></div>");
+        $.ajax({
+            url: "dashboard/getUsers",
+            type: 'GET',
+            timeout: 3000
+        }).done(
+            function (res) {
+                $.each(res, function (collection, user) {
+                    $(".manager > .row").append(`
                 <div class="col-xs-12 col-sm-6 col-md-4" id="` + user.uid + `">
                     <div class="card">
                         <div class="card-body">
@@ -47,9 +51,10 @@ function getUsers() {
                     </div>
                 </div>                
                 `);
-            });
-        }
-    );
+                });
+            }
+        );
+    }).delay(1500).slideDown();
 }
 //delete User
 function deleteUser(query) {
