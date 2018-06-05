@@ -14,7 +14,10 @@ router.get('/', function (req, res, next) {
 router.post('/deleteUser', function(req, res){
    var temp = "{"+req.param('val')+": "+'"'+req.param('qq')+'"}';
    //console.log(JSON.parse(temp));
-  q.delete(req.param('col'), {uid: req.param('qq')});
+    //q.delete('users', {uid: req.param('query')});
+    res.render('dashboard', {
+      title: 'Dashboard'
+    });
 });
 
 //getUsers
