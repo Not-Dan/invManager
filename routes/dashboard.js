@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var q = require('../scripts/queries');
+var bodyParser = require("body-parser");
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -9,20 +10,22 @@ router.get('/', function (req, res, next) {
   });
 });
 
+//delete
+router.post('/deleteEntry', function(req, res){
+  console.log(req.param.col);
+});
 
-//getProduct
-router.get('/getProduct', function (req, res) {
-  var test = new Promise(function (resolve, reject) {
-    q.find("products", {
-      uid: 'dan'
-    }, (error, data) => {
+//getUsers
+router.get('/getUsers', function (req, res) {
+  var usersCol = new Promise(function (resolve, reject) {
+    q.find("users", {}, (error, data) => {
       if (error) {
         return reject(error);
       }
       resolve(data);
     });
   });
-  test.then(data => {
+  usersCol.then(data => {
       res.send(data);
     })
     .catch(e => {
@@ -30,5 +33,4 @@ router.get('/getProduct', function (req, res) {
       res.send(error);
     });
 });
-
 module.exports = router;

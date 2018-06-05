@@ -1,6 +1,5 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+body{
+  font-family: 'Open Sans', sans-serif;
 }
 
 a {
@@ -14,9 +13,6 @@ a {
 #login-false, #login-failed{
   display: none;
 }
-button{
-  margin: 5px 0;
-}
 .fill-height{
   height:100%;
   margin-bottom: 0;
@@ -24,4 +20,8 @@ button{
 body > .fill-height{
   padding:0;
   margin:0;
+}
+.control{
+  float:right;
+  padding: 3px;
 }

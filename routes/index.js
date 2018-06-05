@@ -36,7 +36,7 @@ router.post('/login', function (req, res) {
   login.then(data => {
       if (data == undefined || null) {
         res.redirect('/?login=false');
-      } else if (data.pwd == req.param('pwd')) {
+      } else if (data[0].pwd == req.param('pwd')) {
         res.redirect('/dashboard');
       } else {
         res.redirect('/?login=failed');
@@ -61,8 +61,8 @@ router.post('/register', function (req, res) {
     });
   });
   checkUid.then(data => {
-      console.log(data);
-      if (data == undefined || null) {
+      console.log(data[0]);
+      if (data[0] == undefined || null) {
         q.writeOne(
           "users", {
             uid: req.param('ruid'),
@@ -89,11 +89,11 @@ router.get('/getProduct', function (req, res) {
       if (error) {
         return reject(error);
       }
-      resolve(data);
+      resolve(data[0]);
     });
   });
   test.then(data => {
-      res.send(data);
+      res.send(data[0]);
     })
     .catch(e => {
       console.log(error);

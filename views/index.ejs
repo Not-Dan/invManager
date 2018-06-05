@@ -6,7 +6,7 @@
     <%= title %>
   </title>
   <% include partials/head %>
-    
+
 <script>
     // $.ajax({
     //   url: "/getProduct",
@@ -15,7 +15,7 @@
     //     console.log(res);
     //   }
     // });
-  
+
     $(document).ready(function(){
       $('#register-link').click(function(){
       $('.login').slideUp();
@@ -24,7 +24,7 @@
       $('#register-link').addClass('active');
     });
     $('#login-link').click(function(){
-      $('.login').slideDown(); 
+      $('.login').slideDown();
       $('.register').slideUp();
       $('#login-link').addClass('active');
       $('#register-link').removeClass('active');

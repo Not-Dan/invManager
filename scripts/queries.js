@@ -10,7 +10,7 @@ module.exports = {
                 if (err) {
                     return callback(err);
                 }
-                callback(null, result[0]); // here we call the callback
+                callback(null, result); // here we call the callback
                 db.close();
             });
         });
@@ -21,6 +21,17 @@ module.exports = {
             var dbo = db.db("invDB");
             dbo.collection(table).insertOne(params);
             db.close();
+        });
+    },
+    delete: function(table, qry){
+        MongoClient.connect(url, function (err, db) {
+            if (qry != null || undefined){
+                console.log("Deleting "+qry+" from " +table);
+                if (err) throw err;
+                var dbo = db.db("invDB");
+                dbo.collection(table).remove(qry);
+                db.close();
+            }
         });
     }
 };
