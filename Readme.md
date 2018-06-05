@@ -1,6 +1,10 @@
 # invManager
 This is just a simple inventory management system that I'm making to help me understand back end technologies, in this case, node.js better.
 
+In this application, a user should be able to log in/create an account and access the product database. From the dashboard they should have a full range of functions.
+
+I might include password hashing and session management at a later date.
+
 ## Licensing
 You're more than welcome to use parts of the code as long as you give credit where credit is due. I'd be more than happy to answer any questions you have about the code, and take any suggestions if you have them. If you choose to implement this code, I am not responsible/liable for any security issues. As stated earlier, this is a learning experience for myself.
 
