@@ -11,8 +11,10 @@ router.get('/', function (req, res, next) {
 });
 
 //delete
-router.post('/deleteEntry', function(req, res){
-  console.log(req.param.col);
+router.post('/deleteUser', function(req, res){
+   var temp = "{"+req.param('val')+": "+'"'+req.param('qq')+'"}';
+   //console.log(JSON.parse(temp));
+  q.delete(req.param('col'), {uid: req.param('qq')});
 });
 
 //getUsers

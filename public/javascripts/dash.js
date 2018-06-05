@@ -21,7 +21,7 @@ function getUsers() {
                             <strong>First Name:</strong> ` + user.fname + `
                             <br/><strong>Last Name:</strong> ` + user.lname + `
                         </p>
-                        <button type="button" class="btn btn-secondary btn-block" onclick="deleteEntry('users', {uid: '` + user.uid + `'})">Delete</button>
+                        <button type="button" class="btn btn-secondary btn-block" onclick="deleteUser('users', 'uid', '` + user.uid + `')">Delete</button>
                         </div>
                     </div>
                 </div>                
@@ -30,15 +30,16 @@ function getUsers() {
         }
     );
 }
-//delete entry
-function deleteEntry(table, query) {
+//delete User
+function deleteUser(table, key, query) {
     if (query != null || undefined) {
         var send = {
             col: table,
-            qry: query
+            val: key,
+            qq: query
         }
         $.ajax({
-            url: 'dashboard/deleteEntry',
+            url: 'dashboard/deleteUser',
             type: 'POST',
             data: send,
             timeout: 5000
