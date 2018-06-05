@@ -14,3 +14,14 @@ a {
 #login-false, #login-failed{
   display: none;
 }
+button{
+  margin: 5px 0;
+}
+.fill-height{
+  height:100%;
+  margin-bottom: 0;
+}
+body > .fill-height{
+  padding:0;
+  margin:0;
+}

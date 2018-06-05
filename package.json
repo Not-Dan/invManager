@@ -1,6 +1,6 @@
 {
   "name": "invmnger",
-  "version": "0.0.1",
+  "version": "0.3.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
@@ -20,5 +20,19 @@
   "main": "app.js",
   "devDependencies": {},
   "author": "Daniel Baliczek",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-Dan/invManager.git"
+  },
+  "keywords": [
+    "inventory",
+    "node.js",
+    "express",
+    "mongo"
+  ],
+  "bugs": {
+    "url": "https://github.com/Not-Dan/invManager/issues"
+  },
+  "homepage": "https://github.com/Not-Dan/invManager#readme"
 }
