@@ -24,6 +24,27 @@ function changePass() {
     $("#Change-Password").addClass('active');
 }
 
+//add product
+function addProduct() {
+    $(".manager").slideUp(1000, function () {
+        $(".manager").html(`
+        <div class="row">
+        <div class="col-xs-12 col-sm-12 offset-md-3 col-md-6">
+        <form id="addProduct">
+        <div class="form-group"><label for="pname">Product Name</label><input type="text" name="pname" id="pname" class="form-control"></div>
+        <div class="form-group"><label for="price">Price</label><input type="text" name="price" id="price" class="form-control"></div>
+        <div class="form-group"><label for="qty">Quantity</label><input type="text" name="qty" id="qty" class="form-control"></div>
+        <div class="form-group"><label for="desc">Description</label><input type="textbox" name="desc" id="desc" class="form-control"></div>
+        <button class="btn btn-primary btn-lg">Confirm</button>
+      </form>
+      </div></div>
+        `);
+        $(".manager").slideDown();
+    });
+    $(".btn-group-vertical > button").removeClass("active");
+    $("#Add-Product").addClass('active');
+}
+
 //get all users
 function getUsers() {
     $(".manager").slideUp(1000, function () {
