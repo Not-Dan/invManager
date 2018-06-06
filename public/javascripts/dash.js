@@ -31,10 +31,10 @@ function addProduct() {
         <div class="row">
         <div class="col-xs-12 col-sm-12 offset-md-3 col-md-6">
         <form method="POST" action="/dashboard/addProduct" id="addProduct">
-        <div class="form-group"><label for="pname">Product Name</label><input type="text" name="pname" id="pname" class="form-control"></div>
-        <div class="form-group"><label for="price">Price</label><input type="text" name="price" id="price" class="form-control"></div>
-        <div class="form-group"><label for="qty">Quantity</label><input type="text" name="qty" id="qty" class="form-control"></div>
-        <div class="form-group"><label for="desc">Description</label><textarea rows="5" name="desc" id="desc" class="form-control" /><br/>
+        <div class="form-group"><label for="pname">Product Name</label><input type="text" name="pname" id="pname" class="form-control" required></div>
+        <div class="form-group"><label for="price">Price</label><input type="text" name="price" id="price" class="form-control" required></div>
+        <div class="form-group"><label for="qty">Quantity</label><input type="text" name="qty" id="qty" class="form-control" required></div>
+        <div class="form-group"><label for="desc">Description</label><textarea rows="5" name="desc" id="desc" class="form-control" required /><br/>
         <button class="btn btn-primary btn-lg">Confirm</button>
       </form>
       </div></div>
@@ -101,7 +101,7 @@ function getProducts() {
                         <h5 class="card-title">` + product.pname + `</h5>
                         <hr />
                         <p class="card-text">
-                            <strong>Price:</strong> ` + product.price + `
+                            <strong>Price:</strong> $` + product.price + `
                             <br/><strong>Quantity:</strong> ` + product.qty + `
                             <br/><strong>Description:</strong><br /> ` + product.desc + `
                         </p>
