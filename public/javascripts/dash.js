@@ -41,13 +41,50 @@ function getUsers() {
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" id="` + user.uid + `">
                     <div class="card">
                         <div class="card-body">
-                        <h5 class="card-title">` + user.uid + `</h5>
+                        <h5 class="card-title">` + user.uid + `<button type="button" class="btn btn-secondary" style="float:right; font-size: 12px;" onclick="deleteUser('users','` + user.uid + `')"><i class="fa fa-trash"></i></button></h5>
+                        
+                        <hr />
                         <p class="card-text">
                             <strong>First Name:</strong> ` + user.fname + `
                             <br/><strong>Last Name:</strong> ` + user.lname + `
                         </p>
-                        <button type="button" class="btn btn-secondary btn-block" onclick="deleteUser('users','` + user.uid + `')">Delete</button>
                         </div>
+                    </div>
+                </div>                
+                `);
+                });
+            }
+        );
+    }).delay(1500).slideDown();
+}
+//get all users
+function getProducts() {
+    $(".manager").slideUp(1000, function () {
+        $(".btn-group-vertical > button").removeClass("active");
+        $("#Show-Products").addClass('active');
+        $(".manager").html("<div class='row'></div>");
+        $.ajax({
+            url: "dashboard/getProducts",
+            type: 'GET',
+            timeout: 3000
+        }).done(
+            function (res) {
+                $.each(res, function (collection, product) {
+                    $(".manager > .row").append(`
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" id="` + product.pid + `">
+                    <div class="card">
+                        <div class="card-body">
+                        <h5 class="card-title">` + product.pname + `</h5>
+                        <hr />
+                        <p class="card-text">
+                            <strong>Price:</strong> ` + product.price + `
+                            <br/><strong>Quantity:</strong> ` + product.qty + `
+                            <br/><strong>Description:</strong><br /> ` + product.desc + `
+                        </p>
+                        <div class="btn-group" style="float:right">
+                        <button type="button" class="btn btn-secondary" onclick="deleteUser('products','` + product.pid + `')"><i class="fa fa-trash"></i></button>
+                        <button type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></button>
+                        </div></div>
                     </div>
                 </div>                
                 `);

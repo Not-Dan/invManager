@@ -36,4 +36,23 @@ router.get('/getUsers', function (req, res) {
       res.send(error);
     });
 });
+
+//getProducts
+router.get('/getProducts', function (req, res) {
+  var products = new Promise(function (resolve, reject) {
+    q.find("products", {}, (error, data) => {
+      if (error) {
+        return reject(error);
+      }
+      resolve(data);
+    });
+  });
+  products.then(data => {
+      res.send(data);
+    })
+    .catch(e => {
+      console.log(error);
+      res.send(error);
+    });
+});
 module.exports = router;
