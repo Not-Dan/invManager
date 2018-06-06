@@ -103,7 +103,7 @@ function getProducts() {
                             <br/><strong>Description:</strong><br /> ` + product.desc + `
                         </p>
                         <div class="btn-group" style="float:right">
-                        <button type="button" class="btn btn-secondary" onclick="deleteUser('products','` + product.pid + `')"><i class="fa fa-trash"></i></button>
+                        <button type="button" class="btn btn-secondary" onclick="deleteProduct('products','` + product.pid + `')"><i class="fa fa-trash"></i></button>
                         <button type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></button>
                         </div></div>
                     </div>
@@ -132,6 +132,29 @@ function deleteUser(table,query) {
                     </div>
                     `);
                     $("#user-alert").slideDown(500).delay(5000).slideUp();
+                }
+            );
+        }
+    }
+}
+//delete product
+function deleteProduct(table,query) {
+    if (query != null || undefined) {
+        if (confirm("Are you sure you would like to delete: " + query + "?")) {
+            $.ajax({
+                url: 'dashboard/deleteProduct',
+                type: 'POST',
+                data: {qq: query},
+                timeout: 5000
+            }).done(
+                function () {
+                    $("#" + query).fadeOut();
+                    $(".manager").prepend(`
+                    <div class="alert alert-success" role="alert" id="product-alert" style="display:none">
+                       Product ` + query + ` has been deleted
+                    </div>
+                    `);
+                    $("#product-alert").slideDown(500).delay(5000).slideUp();
                 }
             );
         }

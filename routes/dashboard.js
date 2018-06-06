@@ -18,6 +18,14 @@ router.post('/deleteUser', function(req, res){
     });
 });
 
+//delete
+router.post('/deleteProduct', function(req, res){
+    q.delete('products', {pid: req.param('qq')});
+    res.render('dashboard', {
+      title: 'Dashboard'
+    });
+});
+
 //getUsers
 router.get('/getUsers', function (req, res) {
   var usersCol = new Promise(function (resolve, reject) {
