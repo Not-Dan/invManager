@@ -30,11 +30,11 @@ function addProduct() {
         $(".manager").html(`
         <div class="row">
         <div class="col-xs-12 col-sm-12 offset-md-3 col-md-6">
-        <form id="addProduct">
+        <form method="POST" action="/dashboard/addProduct" id="addProduct">
         <div class="form-group"><label for="pname">Product Name</label><input type="text" name="pname" id="pname" class="form-control"></div>
         <div class="form-group"><label for="price">Price</label><input type="text" name="price" id="price" class="form-control"></div>
         <div class="form-group"><label for="qty">Quantity</label><input type="text" name="qty" id="qty" class="form-control"></div>
-        <div class="form-group"><label for="desc">Description</label><input type="textbox" name="desc" id="desc" class="form-control"></div>
+        <div class="form-group"><label for="desc">Description</label><textarea rows="5" name="desc" id="desc" class="form-control" /><br/>
         <button class="btn btn-primary btn-lg">Confirm</button>
       </form>
       </div></div>
@@ -44,6 +44,9 @@ function addProduct() {
     $(".btn-group-vertical > button").removeClass("active");
     $("#Add-Product").addClass('active');
 }
+
+
+//additions
 
 //get all users
 function getUsers() {
@@ -114,6 +117,9 @@ function getProducts() {
         );
     }).delay(1500).slideDown();
 }
+
+//Deletions
+
 //delete User
 function deleteUser(table,query) {
     if (query != null || undefined) {
