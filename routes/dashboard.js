@@ -116,7 +116,9 @@ router.post('/addProduct', function (req, res) {
             desc: req.param('desc'),
             pid: maxPid
           });
-          res.redirect('/dashboard');
+          res.render('dashboard', {
+            title: 'Dashboard'
+          });
       } else {
         res.send(error);
       }
