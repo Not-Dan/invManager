@@ -49,6 +49,9 @@ I think that should do it
 * Create Queries
     * Edit Product
 * Change forms to submit ajax with event.preventDefault(); to work around redirecting and send messages
+* find a better way to make buttons change display
+### User Interface
+* Make it look better
 
 ## Acknowledgements
 I appreciate all the help from the developer community! Without these guys, I wouldn't have gotten this far. I owe them a lot more than just some acknowlegements in a small git repo.
