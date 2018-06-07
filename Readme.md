@@ -47,12 +47,8 @@ I think that should do it
 * Error Messages
 ### Dashboard
 * Create Queries
-    * Create Product
     * Edit Product
-    * Delete Product
-    * Delete User
-### User
-* Reset Password
+* Change forms to submit ajax with event.preventDefault(); to work around redirecting and send messages
 
 ## Acknowledgements
 I appreciate all the help from the developer community! Without these guys, I wouldn't have gotten this far. I owe them a lot more than just some acknowlegements in a small git repo.
