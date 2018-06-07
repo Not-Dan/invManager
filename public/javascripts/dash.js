@@ -4,25 +4,36 @@ $(document).ready(function () {
 });
 
 //change password
+
 function changePass() {
     $(".manager").slideUp(1000, function () {
         $(".manager").html(`
         <div class="row">
         <div class="col-xs-12 col-sm-12 offset-md-3 col-md-6">
-        <form id="changePW">
-        <div class="form-group"><label for="uid">Username</label><input type="text" name="uid" id="uid" class="form-control"></div>
-        <div class="form-group"><label for="pwd">Old Password</label><input type="text" name="pwd" id="pwd" class="form-control"></div>
-        <div class="form-group"><label for="npwd">New Password</label><input type="text" name="npwd" id="npwd" class="form-control"></div>
-        <div class="form-group"><label for="cpwd">Confirm New Password</label><input type="text" name="cpwd" id="cpwd" class="form-control"></div>
+        <form method="POST" action="/dashboard/changePW" id="changePW">
+        <div class="form-group"><label for="uid">Username</label><input type="text" name="uid" id="uid" class="form-control" required></div>
+        <div class="form-group"><label for="pwd">Old Password</label><input type="password" name="pwd" id="pwd" class="form-control" required></div>
+        <div class="form-group"><label for="npwd">New Password</label><input type="password" name="npwd" id="npwd" class="form-control" required></div>
+        <div class="form-group"><label for="cpwd">Confirm New Password</label><input type="password" name="cpwd" id="cpwd" class="form-control" required></div>
         <button class="btn btn-primary btn-lg">Change Password</button>
       </form>
       </div></div>
+      <script>
+      $("#changePW").submit(function(){
+        if ($("#npwd").val() != $("#cpwd").val()){
+            alert("Passwords don't match");
+            return false;
+        }
+    });</script>
         `);
         $(".manager").slideDown();
     });
     $(".btn-group-vertical > button").removeClass("active");
     $("#Change-Password").addClass('active');
 }
+
+
+//Additions
 
 //add product
 function addProduct() {
@@ -44,9 +55,6 @@ function addProduct() {
     $(".btn-group-vertical > button").removeClass("active");
     $("#Add-Product").addClass('active');
 }
-
-
-//additions
 
 //get all users
 function getUsers() {

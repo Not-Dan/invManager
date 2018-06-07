@@ -23,15 +23,26 @@ module.exports = {
             db.close();
         });
     },
-    delete: function(table, qry){
+    delete: function (table, qry) {
         MongoClient.connect(url, function (err, db) {
-            if (qry != null || undefined){
-                console.log("Deleting "+qry+" from " +table);
+            if (qry != null || undefined) {
+                console.log("Deleting " + qry + " from " + table);
                 if (err) throw err;
                 var dbo = db.db("invDB");
                 dbo.collection(table).remove(qry);
                 db.close();
             }
         });
+    },
+    edit: function (table, id, qry) {
+        console.log("Changing " + id + " within " + table + " to " + qry);
+        MongoClient.connect(url, function (err, db) {
+            var dbo = db.db("invDB");
+        dbo.collection(table).updateOne(id, {$set: qry}, function(err, res) {
+            if (err) throw err;
+            console.log("1 document updated");
+            db.close();
+        });
+    });
     }
 };
