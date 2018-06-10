@@ -189,8 +189,6 @@ router.post('/changePW', function (req, res) {
 
 //edit product
 router.post('/editProduct', function(req, res){
-  console.log(req.body.pname);
-  console.log(req.param('pid'));
     q.edit('products', {
       pid: req.body.pid
     },{
