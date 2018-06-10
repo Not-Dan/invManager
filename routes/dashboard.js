@@ -67,7 +67,6 @@ router.get('/getProduct', function(req, res) {
     });
   });
   product.then(data => {
-    console.log(data[0]);
     res.send(data);
   }).catch(e => {
     res.send(e);
@@ -169,7 +168,6 @@ router.post('/changePW', function (req, res) {
     });
 
     user.then(results => {
-      console.log(results[0]);
       if (results.length < 1) {
         res.send("No User Found");
       } else if (results[0].pwd != req.body.npwd) {
@@ -187,6 +185,21 @@ router.post('/changePW', function (req, res) {
   } else {
     res.send("An Error Occured");
   }
-
 });
+
+//edit product
+router.post('/editProduct', function(req, res){
+  console.log(req.body.pname);
+  console.log(req.param('pid'));
+    q.edit('products', {
+      pid: req.body.pid
+    },{
+      pname: req.body.pname,
+      qty: req.body.qty,
+      price: req.body.price,
+      desc: req.body.desc
+    });
+    res.redirect('/dashboard');
+});
+
 module.exports = router;
