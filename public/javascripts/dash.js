@@ -38,8 +38,7 @@ function changePass() {
 //add product
 function addProduct() {
     $(".manager").slideUp(1000, function () {
-        $(".manager").html(`
-        <div class="row">
+        $(".manager > .row").html(`
         <div class="col-xs-12 col-sm-12 offset-md-3 col-md-6">
         <form method="POST" action="/dashboard/addProduct" id="addProduct">
         <div class="form-group"><label for="pname">Product Name</label><input type="text" name="pname" id="pname" class="form-control" required></div>
@@ -48,7 +47,7 @@ function addProduct() {
         <div class="form-group"><label for="desc">Description</label><textarea rows="5" name="desc" id="desc" class="form-control" required /><br/>
         <button class="btn btn-primary btn-lg">Confirm</button>
       </form>
-      </div></div>
+      </div>
         `);
         $(".manager").slideDown();
     });
@@ -114,8 +113,8 @@ function getProducts() {
                             <br/><strong>Description:</strong><br /> ` + product.desc + `
                         </p>
                         <div class="btn-group" style="float:right">
-                        <button type="button" class="btn btn-secondary" onclick="deleteProduct('products','` + product.pid + `')"><i class="fa fa-trash"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="fa fa-edit"></i></button>
+                        <button type="button" class="btn btn-secondary" onclick="deleteProduct('` + product.pid + `')"><i class="fa fa-trash"></i></button>
+                        <button type="button" class="btn btn-secondary" onclick="editProduct('`+ product.pid +`')"><i class="fa fa-edit"></i></button>
                         </div></div>
                     </div>
                 </div>                
@@ -129,7 +128,7 @@ function getProducts() {
 //Deletions
 
 //delete User
-function deleteUser(table,query) {
+function deleteUser(query) {
     if (query != null || undefined) {
         if (confirm("Are you sure you would like to delete user: " + query + "?")) {
             $.ajax({
@@ -173,4 +172,28 @@ function deleteProduct(table,query) {
             );
         }
     }
+}
+function editProduct(product){
+    $.ajax({
+        url: 'dashboard/getProduct',
+        type: 'GET',
+        data: {pid: product},
+        timeout: 5000
+    }).done(function(data){
+        $(".manager").slideUp(1000, function () {
+            console.log(data[0]);
+            $(".manager > .row").html(`
+            <div class="col-xs-12 col-sm-12 offset-md-3 col-md-6">
+            <form method="POST" action="/dashboard/editProduct" id="editProduct">
+            <div class="form-group"><label for="pname">Product Name</label><input type="text" name="pname" id="pname" class="form-control" value="`+data[0].pname+`" required></div>
+            <div class="form-group"><label for="price">Price</label><input type="text" name="price" id="price" class="form-control" value="`+data[0].price+`" required></div>
+            <div class="form-group"><label for="qty">Quantity</label><input type="text" name="qty" id="qty" class="form-control" value="`+data[0].qty+`" required></div>
+            <div class="form-group"><label for="desc">Description</label><textarea rows="5" name="desc" id="desc" class="form-control" required>`+data[0].desc+`</textarea><br/>
+            <button class="btn btn-primary btn-lg">Confirm</button>
+          </form>
+          </div>
+            `);
+            $(".manager").slideDown();
+        });
+    });
 }

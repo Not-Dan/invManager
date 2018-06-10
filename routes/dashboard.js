@@ -56,6 +56,25 @@ router.get('/getUsers', function (req, res) {
 });
 
 //getProducts
+router.get('/getProduct', function(req, res) {
+  console.log(req.param('pid'));
+  var product = new Promise(function(resolve, reject){
+    q.find("products", {pid: req.param('pid')}, (error, data) => {
+      if (error) {
+        return reject(error);
+      }
+      resolve(data);
+    });
+  });
+  product.then(data => {
+    console.log(data[0]);
+    res.send(data);
+  }).catch(e => {
+    res.send(e);
+  });
+});
+
+//getProducts
 router.get('/getProducts', function (req, res) {
   var products = new Promise(function (resolve, reject) {
     q.find("products", {}, (error, data) => {
@@ -69,7 +88,6 @@ router.get('/getProducts', function (req, res) {
       res.send(data);
     })
     .catch(e => {
-      console.log(error);
       res.send(error);
     });
 });
