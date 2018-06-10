@@ -183,7 +183,7 @@ function editProduct(product){
         $(".manager").slideUp(1000, function () {
             $(".manager > .row").html(`
             <div class="col-xs-12 col-sm-12 offset-md-3 col-md-6">
-            <form method="POST" action="/dashboard/editProduct" id="editProduct">
+            <form id="editProduct">
             <div class="form-group"><label for="pid">Product ID</label><input type="text" name="pid" id="pid" class="form-control" value="`+data[0].pid+`" readonly></div>
             <div class="form-group"><label for="pname">Product Name</label><input type="text" name="pname" id="pname" class="form-control" value="`+data[0].pname+`" required></div>
             <div class="form-group"><label for="price">Price</label><input type="text" name="price" id="price" class="form-control" value="`+data[0].price+`" required></div>
@@ -202,8 +202,6 @@ $("#editProduct").submit(function(ev){
         url: '/dashboard/editProduct',
         type: 'POST',
         data: $(this).serialize(),
-    }).done(function() {
-        getProducts();
+        success: getProducts()
     });
-    ev.preventDefault();
 });

@@ -56,10 +56,12 @@ router.get('/getUsers', function (req, res) {
 });
 
 //getProducts
-router.get('/getProduct', function(req, res) {
+router.get('/getProduct', function (req, res) {
   console.log(req.param('pid'));
-  var product = new Promise(function(resolve, reject){
-    q.find("products", {pid: req.param('pid')}, (error, data) => {
+  var product = new Promise(function (resolve, reject) {
+    q.find("products", {
+      pid: req.param('pid')
+    }, (error, data) => {
       if (error) {
         return reject(error);
       }
@@ -188,16 +190,16 @@ router.post('/changePW', function (req, res) {
 });
 
 //edit product
-router.post('/editProduct', function(req, res){
-    q.edit('products', {
-      pid: req.body.pid
-    },{
-      pname: req.body.pname,
-      qty: req.body.qty,
-      price: req.body.price,
-      desc: req.body.desc
-    });
-    res.redirect('/dashboard');
+router.post('/editProduct', function (req, res) {
+  q.edit('products', {
+    pid: req.body.pid
+  }, {
+    pname: req.body.pname,
+    qty: req.body.qty,
+    price: req.body.price,
+    desc: req.body.desc
+  });
+  res.end();
 });
 
 module.exports = router;

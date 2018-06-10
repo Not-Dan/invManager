@@ -46,8 +46,6 @@ I think that should do it
 * Validation
 * Error Messages
 ### Dashboard
-* Create Queries
-    * Edit Product
 * Change forms to submit ajax with event.preventDefault(); to work around redirecting and send messages
 * find a better way to make buttons change display
 ### User Interface
