@@ -70,30 +70,10 @@ router.post('/register', function (req, res) {
             fname: req.param('fname'),
             lname: req.param('lname')
           });
-        res.send("User " + req.param('ruid') + " Created");
+          res.redirect("/?register=true");
       } else {
-        res.send("User already exists.");
+        res.redirect("/?register=false");
       }
-    })
-    .catch(e => {
-      console.log(error);
-      res.send(error);
-    });
-});
-//getProduct
-router.get('/getProduct', function (req, res) {
-  var test = new Promise(function (resolve, reject) {
-    q.find("products", {
-      uid: 'dan'
-    }, (error, data) => {
-      if (error) {
-        return reject(error);
-      }
-      resolve(data[0]);
-    });
-  });
-  test.then(data => {
-      res.send(data[0]);
     })
     .catch(e => {
       console.log(error);

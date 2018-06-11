@@ -10,7 +10,7 @@ a {
   display:none;
 }
 
-#login-false, #login-failed{
+#login-false, #login-failed, #reg-false, #reg-success, #pass-match{
   display: none;
 }
 .fill-height{
