@@ -3,7 +3,7 @@ This is just a simple inventory management system that I'm making to help me und
 
 In this application, a user should be able to log in/create an account and access the product database. From the dashboard they should have a full range of functions.
 
-I might include password hashing and session management at a later date.
+As of right now, it's done but I might include password hashing and session management at a later date.
 
 ## Licensing
 You're more than welcome to use parts of the code as long as you give credit where credit is due. I'd be more than happy to answer any questions you have about the code, and take any suggestions if you have them. If you choose to implement this code, I am not responsible/liable for any security issues. As stated earlier, this is a learning experience for myself.
@@ -40,16 +40,6 @@ I think that should do it
 1. Start MongoDB
 1. Start the server
 1. go to localhost/3000
-
-## ToDo
-### Register User 
-* Validation
-* Error Messages
-### Dashboard
-* Change forms to submit ajax with event.preventDefault(); to work around redirecting and send messages
-* find a better way to make buttons change display
-### User Interface
-* Make it look better
 
 ## Acknowledgements
 I appreciate all the help from the developer community! Without these guys, I wouldn't have gotten this far. I owe them a lot more than just some acknowlegements in a small git repo.
