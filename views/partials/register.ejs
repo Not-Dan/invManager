@@ -2,6 +2,9 @@
     <div class="alert alert-danger" role="alert" id="reg-false">
         User Exists. Please Try Another.
     </div>
+    <div class="alert alert-danger" role="alert" id="pass-match">
+            Passwords do not match.
+    </div>
     <div class="form-group">
         <label for="fname">First Name</label>
         <input type="text" class="form-control" name="fname" id="fname" required>
@@ -25,6 +28,12 @@
     <button class="btn btn-primary">Submit</button>
 </form>
 <script>
+     $("#register-form").submit(function(){
+        if ($("#rpwd").val() != $("#pwd-repeat").val()){
+            $("#pass-match").fadeIn();
+            return false;
+        }
+    });
     $(document).ready(function () {
         var regParam = $.urlParam('register');
         if (regParam == 'false') {
